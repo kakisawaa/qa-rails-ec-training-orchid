@@ -3,8 +3,7 @@ services:
   db:
     image: postgres
     volumes:
-      # - ./tmp/db:/var/lib/postgresql/data # Macの場合
-      - app_postgre:/var/lib/postgresql/data #Windowsの場合
+      - ./tmp/db:/var/lib/postgresql/data # Macの場合
     environment:
       POSTGRES_PASSWORD: password
   web:
@@ -16,8 +15,3 @@ services:
       - "3000:3000"
     depends_on:
       - db
-
-# Windows用
-volumes:
-  app_postgre:
-    external: true

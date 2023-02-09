@@ -4,12 +4,18 @@ Rails共同開発講座(9期: らん組)のリポジトリです。
 
 ## Member
 - 氏名:かきさわ
-  - 好きなメソッド:new 
+  - 好きなメソッド:new
 - 氏名: オオタ
   - 好きなメソッド: pluck
 
 ## Docker操作
 ゼロからdocker環境を立ち上げる場合は、上から順にコマンドを実行すればOK
+
+### docker-compose.ymlファイルを生成
+WindowsとMacで使用する内容が異なるため、以下のどちらかの内容をコピペしてdocker-compose.ymlに転記し、コメントアウトを外して使用してください。
+- Windowsの場合 -> docker-compose-for-windows.ymlの内容を使用
+- Macの場合 -> docker-compose-for-mac.ymlの内容を使用
+
 ### docker imageのビルド
 ```
 docker-compose build
