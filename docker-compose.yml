@@ -4,7 +4,7 @@ services:
     image: postgres
     volumes:
       # - ./tmp/db:/var/lib/postgresql/data # Macの場合
-      - app_postgre:/var/lib/postgresql/data #Windowsの場合
+      - dbdata:/var/lib/postgresql/data #Windowsの場合
     environment:
       POSTGRES_PASSWORD: password
   web:
@@ -19,5 +19,4 @@ services:
 
 # Windows用
 volumes:
-  app_postgre:
-    external: true
+  dbdata:
