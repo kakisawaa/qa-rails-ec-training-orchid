@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2023_02_11_011408) do
+ActiveRecord::Schema.define(version: 2023_02_11_144450) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -36,6 +36,7 @@ ActiveRecord::Schema.define(version: 2023_02_11_011408) do
     t.datetime "updated_at", precision: 6, null: false
     t.string "password_digest"
     t.bigint "user_classification_id"
+    t.boolean "delete_flag"
     t.index ["user_classification_id"], name: "index_users_on_user_classification_id"
   end
 
