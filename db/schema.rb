@@ -37,6 +37,7 @@ ActiveRecord::Schema.define(version: 2023_02_12_011919) do
     t.bigint "user_classification_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["email"], name: "index_users_on_email", unique: true
     t.index ["user_classification_id"], name: "index_users_on_user_classification_id"
   end
 
