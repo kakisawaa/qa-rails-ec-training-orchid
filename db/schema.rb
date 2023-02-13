@@ -22,10 +22,8 @@ ActiveRecord::Schema.define(version: 2023_02_13_143002) do
   end
 
   create_table "order_details", force: :cascade do |t|
-    t.string "order_quantity"
-    t.string "integer"
-    t.string "shipment_date"
-    t.string "datetime"
+    t.integer "order_quantity"
+    t.datetime "shipment_date"
     t.bigint "product_id"
     t.bigint "order_id"
     t.bigint "shipment_status_id"
@@ -89,7 +87,6 @@ ActiveRecord::Schema.define(version: 2023_02_13_143002) do
 
   create_table "shipment_statuses", force: :cascade do |t|
     t.string "shipment_status_name", limit: 16
-    t.string "string"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
