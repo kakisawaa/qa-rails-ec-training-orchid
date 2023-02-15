@@ -6,7 +6,6 @@ class User < ApplicationRecord
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_ZIPCODE_PHONENUMBER_REGEX = /\A[0-9]+\z/
   validates :password, presence: true, length: { in: 6..15 }, format: { with: VALID_PASSWORD_REGEX }
-  validates :password_confirmation, presence: true, length: { in: 6..15 }, format: { with: VALID_PASSWORD_REGEX }
   validates :last_name, presence: true, length: { maximum: 10 }
   validates :first_name, presence: true, length: { maximum: 10 }
   validates :zipcode, presence: true, length: { is: 7 }, format: { with: VALID_ZIPCODE_PHONENUMBER_REGEX }
