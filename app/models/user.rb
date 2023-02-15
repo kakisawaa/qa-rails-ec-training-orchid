@@ -11,7 +11,7 @@ class User < ApplicationRecord
   validates :zipcode, presence: true, length: { is: 7 }, format: { with: VALID_ZIPCODE_PHONENUMBER_REGEX }
   validates :prefecture, presence: true, length: { maximum: 5 }
   validates :municipality, presence: true, length: { maximum: 10 }
-  validates :address, presence: true, length: { maximum: 15 }
+  validates :address, presence: true, length: { maximum: 15 }, uniqueness: true
   validates :apartments, presence: true, length: { maximum: 20 }
   validates :email, presence: true, format: { with: VALID_EMAIL_REGEX }
   validates :phone_number, presence: true, length: { maximum: 15 }, format: { with: VALID_ZIPCODE_PHONENUMBER_REGEX }
