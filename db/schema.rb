@@ -24,9 +24,9 @@ ActiveRecord::Schema.define(version: 2023_02_13_143002) do
   create_table "order_details", force: :cascade do |t|
     t.integer "order_quantity"
     t.datetime "shipment_date"
-    t.bigint "product_id"
-    t.bigint "order_id"
-    t.bigint "shipment_status_id"
+    t.bigint "product_id", null: false
+    t.bigint "order_id", null: false
+    t.bigint "shipment_status_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["order_id"], name: "index_order_details_on_order_id"
@@ -37,7 +37,7 @@ ActiveRecord::Schema.define(version: 2023_02_13_143002) do
   create_table "orders", force: :cascade do |t|
     t.datetime "order_date"
     t.string "order_number", limit: 16
-    t.bigint "user_id"
+    t.bigint "user_id", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["user_id"], name: "index_orders_on_user_id"
