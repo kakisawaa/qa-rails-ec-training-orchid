@@ -106,4 +106,83 @@ ActiveRecord::Base.transaction do
     purchase_date: DateTime.parse("1993-02-24T12:30:45"),
     product_id: 2,
   )
+
+  ShipmentStatus.create!(shipment_status_name: "準備中")
+  ShipmentStatus.create!(shipment_status_name: "発送済")
+
+  Order.create!(
+    user_id: 1,
+    order_date: DateTime.parse("1993-02-24T12:30:45"),
+    order_number: 12345678,
+  )
+
+  Order.create!(
+    user_id: 2,
+    order_date: DateTime.parse("1993-02-24T12:30:45"),
+    order_number: 87654321,
+  )
+
+  OrderDetail.create!(
+    product_id: 1,
+    order_id: 1,
+    shipment_status_id: 2,
+    order_quantity: 1,
+    shipment_date: DateTime.parse("1993-02-24T12:30:45"),
+  )
+
+  OrderDetail.create!(
+    product_id: 2,
+    order_id: 1,
+    shipment_status_id: 2,
+    order_quantity: 10,
+    shipment_date: DateTime.parse("1993-02-24T12:30:45"),
+  )
+
+  OrderDetail.create!(
+    product_id: 3,
+    order_id: 1,
+    shipment_status_id: 2,
+    order_quantity: 1,
+    shipment_date: DateTime.parse("1993-02-24T12:30:45"),
+  )
+
+  OrderDetail.create!(
+    product_id: 4,
+    order_id: 1,
+    shipment_status_id: 2,
+    order_quantity: 5,
+    shipment_date: DateTime.parse("1993-02-24T12:30:45"),
+  )
+
+  OrderDetail.create!(
+    product_id: 1,
+    order_id: 2,
+    shipment_status_id: 2,
+    order_quantity: 1,
+    shipment_date: DateTime.parse("1993-02-24T12:30:45"),
+  )
+
+  OrderDetail.create!(
+    product_id: 2,
+    order_id: 2,
+    shipment_status_id: 1,
+    order_quantity: 1,
+    shipment_date: DateTime.parse("1993-02-24T12:30:45"),
+  )
+
+  OrderDetail.create!(
+    product_id: 3,
+    order_id: 2,
+    shipment_status_id: 2,
+    order_quantity: 100,
+    shipment_date: DateTime.parse("1993-02-24T12:30:45"),
+  )
+
+  OrderDetail.create!(
+    product_id: 4,
+    order_id: 2,
+    shipment_status_id: 1,
+    order_quantity: 3,
+    shipment_date: DateTime.parse("1993-02-24T12:30:45"),
+  )
 end
