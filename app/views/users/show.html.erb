@@ -117,7 +117,7 @@
                   ユーザID
                 </td>
                 <td>
-                  User
+                  <%= @user.id %>
                 </td>
               </tr>
 
@@ -126,7 +126,7 @@
                   氏名
                 </td>
                 <td>
-                  ○○ ☓☓
+                  <%= @user.last_name %><%= @user.first_name %>
                 </td>
               </tr>
 
@@ -135,8 +135,8 @@
                   住所
                 </td>
                 <td>
-                  〒○〇〇-○○○○<br>
-                  沖縄県那覇市○○ ○-○-◯
+                  〒<%= @user.zipcode %><br>
+                  <%= @user.prefecture %><%= @user.municipality %><%= @user.address %><%= @user.apartments %>
                 </td>
               </tr>
               <tr>
@@ -144,14 +144,14 @@
                   電話番号
                 </td>
                 <td>
-                  ○○○-○○○○-○〇〇○
+                  <%= @user.phone_number %>
                 </td>
               <tr>
                 <td class="text-center">
                   メールアドレス
                 </td>
                 <td>
-                  User@example.com
+                  <%= @user.email %>
                 </td>
               </tr>
             </tbody>
