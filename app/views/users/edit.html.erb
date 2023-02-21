@@ -129,7 +129,7 @@ sans-serif;
             住所<span style="float: right"><%= f.label :zipcode, "〒" %></span>
           </td>
           <td colspan="2">
-            <%= f.text_field :zipcode, style: "margin-left:10px", size: "25", pattern: "\d{3}-?\d{4}", required: true %>
+            <%= f.text_field :zipcode, style: "margin-left:10px", size: "25", pattern: "^[0-9]+$", required: true %>
           </td>
         </tr>
 
