@@ -112,6 +112,7 @@ sans-serif;
   <main>
 
     <h2 class="text-center mt-5">ユーザ情報修正</h2>
+    <%= flash[:danger] %>
     <%= form_with(model: @user, local: true) do |f| %>
       <table width="50%" style="margin-left:350px">
         <tr height="40">
