@@ -1,8 +1,8 @@
 class User < ApplicationRecord
   belongs_to :user_classification
-  has_many :products
+  has_many :products, dependent: :destroy
   has_secure_password
-  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?[\d])[a-z\d]+\z/i.freeze
+  VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
   VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
   VALID_ZIPCODE_PHONENUMBER_REGEX = /\A[0-9]+\z/
   validates :password, presence: true, length: { in: 6..15 }, format: { with: VALID_PASSWORD_REGEX }
