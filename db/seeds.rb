@@ -1,3 +1,4 @@
+# rubocop:disable Metrics/BlockLength
 ActiveRecord::Base.transaction do
   UserClassification.create!(user_classification_name: "admin")
   UserClassification.create!(user_classification_name: "general")
@@ -17,16 +18,16 @@ ActiveRecord::Base.transaction do
       company_name: "株式会社aaa",
     )
   end
-  
+
   Category.create!(category_name: "家具")
   Category.create!(category_name: "文房具")
-  
+
   SaleStatus.create!(sale_status_name: "販売中")
   SaleStatus.create!(sale_status_name: "売り切れ")
-  
+
   ProductStatus.create!(product_status_name: "新品")
   ProductStatus.create!(product_status_name: "新品同様")
-  
+
   Product.create!(
     product_name: "テーブル",
     category_id: 1,
@@ -38,7 +39,7 @@ ActiveRecord::Base.transaction do
     user_id: 1,
     delete_flg: false,
   )
-  
+
   Product.create!(
     product_name: "椅子",
     category_id: 1,
@@ -50,7 +51,7 @@ ActiveRecord::Base.transaction do
     user_id: 1,
     delete_flg: false,
   )
-  
+
   Product.create!(
     product_name: "タンス",
     category_id: 1,
@@ -62,7 +63,7 @@ ActiveRecord::Base.transaction do
     user_id: 1,
     delete_flg: false,
   )
-  
+
   Product.create!(
     product_name: "ベッド",
     category_id: 1,
@@ -74,7 +75,7 @@ ActiveRecord::Base.transaction do
     user_id: 1,
     delete_flg: false,
   )
-  
+
   100.times do |i|
     Product.create!(
       product_name: "ボールペン#{i}",
@@ -88,7 +89,7 @@ ActiveRecord::Base.transaction do
       delete_flg: false,
     )
   end
-  
+
   Purchase.create!(
     purchase_price: 70000,
     purchase_quantity: 5,
@@ -97,7 +98,7 @@ ActiveRecord::Base.transaction do
     purchase_date: DateTime.parse("1993-02-24T12:30:45"),
     product_id: 1,
   )
-  
+
   Purchase.create!(
     purchase_price: 30000,
     purchase_quantity: 2,
@@ -113,13 +114,13 @@ ActiveRecord::Base.transaction do
   Order.create!(
     user_id: 1,
     order_date: DateTime.parse("1993-02-24T12:30:45"),
-    order_number: 12345678,
+    order_number: 12_345_678,
   )
 
   Order.create!(
     user_id: 2,
     order_date: DateTime.parse("1993-02-24T12:30:45"),
-    order_number: 87654321,
+    order_number: 87_654_321,
   )
 
   OrderDetail.create!(
@@ -186,3 +187,4 @@ ActiveRecord::Base.transaction do
     shipment_date: DateTime.parse("1993-02-24T12:30:45"),
   )
 end
+# rubocop:enable Metrics/BlockLength
