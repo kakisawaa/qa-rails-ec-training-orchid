@@ -112,6 +112,7 @@ sans-serif;
   <main>
 
     <h2 class="text-center mt-5">ユーザ情報修正</h2>
+    <%= flash[:danger] %>
     <%= form_with(model: @user, local: true) do |f| %>
       <table width="50%" style="margin-left:350px">
         <tr height="40">
@@ -184,6 +185,24 @@ sans-serif;
           </td>
           <td colspan="2">
             <%= f.text_field :phone_number, style: "margin-left:10px", size: "65", pattern: "(^[0-9]+$){1,15}", required: true %>
+          </td>
+        </tr>
+
+        <tr height="40">
+          <td align="center">
+            <%= f.label :password, "パスワード" %>
+          </td>
+          <td colspan="2">
+            <%= f.password_field :password, style: "margin-left:10px", size: "65" %>
+          </td>
+        </tr>
+
+        <tr height="40">
+          <td align="center">
+            <%= f.label :password_confirmation, "パスワード" %><br><%= "（再入力）" %></br>
+          </td>
+          <td colspan="2">
+            <%= f.password_field :password_confirmation, style: "margin-left:10px", size: "65" %>
           </td>
         </tr>
       </table>
