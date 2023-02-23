@@ -11,7 +11,8 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
     @user.assign_attributes(user_params)
     if @user.save
-      flash[:success] = "更新に成功しました"
+      # TODO: 日本語化のタスクの時に以下の日本語をconfig/localsに定義する
+      flash[:success] = "更新に成功しました" # rubocop:disable Rails/I18nLocaleTexts
       redirect_to @user
     else
       flash.now[:danger] = "更新に失敗しました"
@@ -20,8 +21,9 @@ class UsersController < ApplicationController
   end
 
   private
-  
-  def user_params
-    params.require(:user).permit(:last_name, :first_name, :zipcode, :prefecture, :municipality, :address, :apartments, :email, :phone_number, :password, :password_confirmation)
-  end
+
+    def user_params
+      params.require(:user).permit(:last_name, :first_name, :zipcode, :prefecture, :municipality, :address, :apartments, :email, :phone_number, :password,
+                                   :password_confirmation)
+    end
 end
