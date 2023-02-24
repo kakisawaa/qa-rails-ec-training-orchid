@@ -243,3 +243,6 @@ Style/WordArray:
 
 Style/ZeroLengthPredicate:
   Enabled: false
+
+Layout/EndOfLine: 
+  EnforcedStyle: crlf
