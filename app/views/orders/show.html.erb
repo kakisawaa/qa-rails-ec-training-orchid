@@ -36,24 +36,17 @@
             </tr>
           </thead>
           <tbody>
-            <tr>
-              <th scope="row">1</th>
-              <td>商品1</td>
-              <td>食料品</td>
-              <td>1000円</td>
-              <td>5　個</td>
-              <td>5000円</td>
-              <td>注文状態：準備中</td>
-            </tr>
-            <tr>
-              <th scope="row">2</th>
-              <td>商品2</td>
-              <td>食料品</td>
-              <td>2000円</td>
-              <td>2　個</td>
-              <td>4000円</td>
-              <td>注文状態：準備中</td>
-            </tr>
+            <% @order_details.each do |order_detail| %>
+              <tr>
+                <th scope="row">1</th>
+                <td><%= order_detail.product.product_name %></td>
+                <td><%= order_detail.product.category.category_name %></td>
+                <td><%= order_detail.product.price %>円</td>
+                <td><%= order_detail.order_quantity %>　個</td>
+                <td><%= order_detail.order_quantity * order_detail.product.price %>円</td>
+                <td>注文状態：<%= order_detail.shipment_status.shipment_status_name %></td>
+              </tr>
+            <% end %>
           </tbody>
         </table>
         <div class="border-top border-dark">
