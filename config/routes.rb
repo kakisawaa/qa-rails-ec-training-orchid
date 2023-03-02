@@ -1,5 +1,4 @@
 Rails.application.routes.draw do
-  get 'orders/show'
   get 'login', to:'sessions#new', as: 'login'
   resources :users, only: %i(show edit update)
   resources :products, only: %i(show)
