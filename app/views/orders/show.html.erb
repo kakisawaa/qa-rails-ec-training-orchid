@@ -12,14 +12,10 @@
         </div>
         <div class="mt-5 ml-3">
           <p>注文番号：<%= @order.order_number %></p>
-          <% if @order_details.where(shipment_status_id: 1).any? %>
-            <p>注文状態：準備中</p> 
-          <% else %>
-            <p>注文状態：発送済</p>
-          <% end %>
+          <p>注文状態：<%= @order.order_preparing? ? "準備中" : "発送済" %></p>
         </div>
         <div class="text-end">
-          <% if @order_details.where(shipment_status_id: 1).any? %>
+          <% if @order.order_preparing? %>
             <button type="button" class="btn btn-danger">注文をキャンセルする</button>
           <% end %> 
         </div>
@@ -36,17 +32,14 @@
             </tr>
           </thead>
           <tbody>
-            <% sum = 0 %>
-            <% @order_details.each.with_index(1) do |order_detail, i| %>
+            <% @order.order_details.each.with_index(1) do |order_detail, i| %>
               <tr>
                 <th scope="row"><%= i %></th>
                 <td><%= order_detail.product.product_name %></td>
                 <td><%= order_detail.product.category.category_name %></td>
                 <td><%= order_detail.product.price %>円</td>
                 <td><%= order_detail.order_quantity %>　個</td>
-                <% sub_total = order_detail.order_quantity * order_detail.product.price %>
-                <% sum += sub_total %>
-                <td><%= sub_total %>円</td>
+                <td><%= order_detail.sub_total_price %>円</td>
                 <td>注文状態：<%= order_detail.shipment_status.shipment_status_name %></td>
               </tr>
             <% end %>
@@ -54,7 +47,7 @@
         </table>
         <div class="border-top border-dark">
           <div class="mt-2 offset-sm-6">
-            <p class="ml-4">合計　　　　　<%= sum %>円</p>
+            <p class="ml-4">合計　　　　　<%= @order.total_price %>円</p>
           </div>
         </div>
         <div class="text-end mb-5">
