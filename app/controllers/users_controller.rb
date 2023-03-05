@@ -1,5 +1,4 @@
 class UsersController < ApplicationController
-  include SessionsHelper
   before_action :logged_in_user, only: [:show, :edit, :update]
   before_action :correct_user, only: [:show, :edit, :update]
 
