@@ -15,6 +15,8 @@ module SessionsHelper
       flash[:danger] = '他人の情報にアクセスすることはできません。'
       redirect_to root_url
     end
+  def current_user?(user)
+    user == current_user
   end
 
   def logged_in?
