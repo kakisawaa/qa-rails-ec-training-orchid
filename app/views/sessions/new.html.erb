@@ -1,7 +1,5 @@
 <%= form_with(scope: :session, url: login_path) do |form| %>
   <h4 class="d-flex justify-content-center mt-5 mb-3">ログイン画面</h4>
-  <%= flash[:success] %>
-  <%= flash[:danger] %>
   <div class="d-flex justify-content-center">
     <div>
       <%= form.label :email, "メールアドレス" %><br>
