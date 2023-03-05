@@ -10,13 +10,14 @@ module SessionsHelper
   end
 
   def correct_user
-    @user = User.find_by(id: params[:id])
-    if current_user != @user
-      flash[:danger] = '他人の情報にアクセスすることはできません。'
+    user = User.find_by(id: params[:id])
+    if current_user != user
+      # TODO: 日本語化のタスクの時に以下の日本語をconfig/localsに定義する
+      flash[:danger] = "他人の情報にアクセスすることはできません。" # rubocop:disable Rails/I18nLocaleTexts
       redirect_to root_url
     end
   end
-  
+
   def current_user?(user)
     user == current_user
   end
@@ -27,7 +28,8 @@ module SessionsHelper
 
   def logged_in_user
     unless logged_in?
-      flash['danger'] = "ログインしてください。"
+      # TODO: 日本語化のタスクの時に以下の日本語をconfig/localsに定義する
+      flash["danger"] = "ログインしてください。" # rubocop:disable Rails/I18nLocaleTexts
       redirect_to login_url
     end
   end
