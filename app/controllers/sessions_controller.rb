@@ -6,7 +6,8 @@ class SessionsController < ApplicationController
     user = User.find_by(email: params[:session][:email])
     if user && user.authenticate(params[:session][:password])
       login(user)
-      flash[:success] = "ログインしました"
+      # TODO: 日本語化のタスクの時に以下の日本語をconfig/localsに定義する
+      flash[:success] = "ログインしました" # rubocop:disable Rails/I18nLocaleTexts
       redirect_to user
     else
       flash.now[:danger] = "ログインに失敗しました"
@@ -17,7 +18,8 @@ class SessionsController < ApplicationController
   def destroy
     if logged_in?
       logout
-      flash[:success] = "ログアウトしました"
+      # TODO: 日本語化のタスクの時に以下の日本語をconfig/localsに定義する
+      flash[:success] = "ログアウトしました" # rubocop:disable Rails/I18nLocaleTexts
       redirect_to login_url
     end
   end
