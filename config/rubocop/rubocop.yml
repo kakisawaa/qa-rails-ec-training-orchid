@@ -44,7 +44,6 @@ Layout/MultilineMethodCallIndentation:
 Layout/SpaceInsideBlockBraces:
   SpaceBeforeBlockParameters: false
 
-
 Lint/AmbiguousBlockAssociation:
   Exclude:
     - "spec/**/*_spec.rb"
@@ -63,7 +62,6 @@ Lint/UnusedMethodArgument:
 
 Lint/Void:
   CheckForMethodsWithNoSideEffects: true
-
 
 Metrics/AbcSize:
   Max: 24
@@ -91,8 +89,6 @@ Metrics/MethodLength:
 Metrics/PerceivedComplexity:
   Max: 8
 
-
-
 Naming/MethodParameterName:
   Enabled: false
 
@@ -104,11 +100,8 @@ Naming/PredicateName:
     - "is_"
     - "have_"
 
-
 Security/YAMLLoad:
   Enabled: false
-
-
 
 Style/Alias:
   EnforcedStyle: prefer_alias_method
@@ -244,5 +237,6 @@ Style/WordArray:
 Style/ZeroLengthPredicate:
   Enabled: false
 
-Layout/EndOfLine: 
-  EnforcedStyle: crlf
+Layout/EndOfLine:
+  Enabled: false
+
