@@ -1,0 +1,85 @@
+ja:
+  activerecord:
+    models:
+      category: カテゴリー
+      order_detail: 注文詳細
+      order: 注文
+      product_status: 商品状態
+      product: 商品
+      purchase: 仕入
+      sale_status: 販売状態
+      shipment_status: 発送状態
+      user_classification: ユーザ種別
+      user: ユーザ
+    attributes:
+      category:
+        id: ID
+        category_name: カテゴリー名
+        created_at: 作成日
+        updated_at: 更新日
+      order_detail:
+        id: ID
+        order_quantity: 注文個数
+        shipment_date: 発送日
+        created_at: 作成日
+        updated_at: 更新日
+      order:
+        id: ID
+        order_date: 注文日
+        order_number: 注文番号
+        created_at: 作成日
+        updated_at: 更新日
+      product_status:
+        id: ID
+        product_status_name: 商品状態名
+        created_at: 作成日
+        updated_at: 更新日
+      procuct:
+        id: ID
+        product_name: 商品名
+        price: 販売価格
+        description: 商品説明
+        regist_date: 商品登録日
+        delete_flag: deleteフラグ
+        created_at: 作成日
+        updated_at: 更新日
+      purchase:
+        id: ID
+        purchase_price: 仕入価格
+        purchase_quantity: 仕入個数
+        purchase_company: 仕入先会社
+        order_date: 発送日
+        purchase_date: 納入日
+        created_at: 作成日
+        updated_at: 更新日
+      sale_status:
+        id: ID
+        sale_status_name: 販売状態名
+        created_at: 作成日
+        updated_at: 更新日
+      shipment_status:
+        id: ID
+        shipment_status_name: 発送状態名
+        created_at: 作成日
+        updated_at: 更新日
+      user_classification:
+        id: ID
+        user_classification_name: ユーザ種別名
+        created_at: 作成日
+        updated_at: 更新日
+      user:
+        id: ID
+        password: パスワード
+        last_name: 姓
+        first_name: 名
+        zipcode: 郵便番号
+        prefecture: 都道府県
+        municipality: 市町村区
+        address: 番地
+        apartments: マンション、部屋番号
+        email: メールアドレス
+        phone_number: 電話番号
+        company_name: 会社名
+        delete_flag: deleteフラグ
+        created_at: 作成日
+        updated_at: 更新日
