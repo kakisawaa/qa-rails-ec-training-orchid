@@ -8,7 +8,7 @@
       <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">商品名</label>
       <div class="col-sm-6">
         <%= form_tag(products_path, method: :get) do %>
-          <%= text_field_tag :search, " ", {class: "form-control form-control-lg", id: "colFormLabelLg"} %>
+          <%= text_field_tag :search, "", {class: "form-control form-control-lg", id: "colFormLabelLg"} %>
           <%= submit_tag '検索', :product_name => nil, class: "btn btn-primary", style: "width: 80px" %>
         <% end %>
       </div>
