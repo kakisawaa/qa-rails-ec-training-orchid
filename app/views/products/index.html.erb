@@ -19,14 +19,9 @@
     <div class="mx-auto row">
       <label class="col-sm-2 col-form-label col-form-label-lg" for="exampleFormControlSelect2">商品カテゴリ</label>
       <div class="col-sm-4">
-        <select id="exampleFormControlSelect2" class="form-control">
-          <option selected>未選択</option>
-          <option>食材品</option>
-          <option>生活用品</option>
-          <option>消耗品</option>
-          <option>嗜好品</option>
-          <option>医薬品</option>
-        </select>
+        <%= form_tag(products_path, method: :get) do %>
+          <%= select_tag "category_name", options_for_select([["家具", "家具"],["文房具","文房具"]]), class: "form-control", id: "exampleFormControlSelect2" %>
+        <% end %>
       </div>
     </div>
   </div>
