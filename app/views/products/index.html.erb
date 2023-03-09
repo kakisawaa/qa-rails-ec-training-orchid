@@ -3,28 +3,26 @@
     <h2>商品検索画面</h2>
   </div>
 
-  <div class="container mt-5">
-    <div class="mx-auto row">
-      <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">商品名</label>
-      <div class="col-sm-6">
-        <%= form_tag(products_path, method: :get) do %>
-          <%= text_field_tag :search, "", {class: "form-control form-control-lg", id: "colFormLabelLg"} %>
-          <%= submit_tag '検索', :product_name => nil, class: "btn btn-primary", style: "width: 80px" %>
-        <% end %>
+  <%= form_with(url:products_path, method: :get) do |f| %>
+    <div class="container mt-5">
+      <div class="mx-auto row">
+        <label for="colFormLabelLg" class="col-sm-2 col-form-label col-form-label-lg">商品名</label>
+        <div class="col-sm-6">
+          <%= f.text_field :product_name, {value: params[:product_name], class: "form-control form-control-lg", id: "colFormLabelLg"} %>
+          <%= f.submit '検索', class: "btn btn-primary", style: "width: 80px" %>
+        </div>
       </div>
     </div>
-  </div>
 
-  <div class="container">
-    <div class="mx-auto row">
-      <label class="col-sm-2 col-form-label col-form-label-lg" for="exampleFormControlSelect2">商品カテゴリ</label>
-      <div class="col-sm-4">
-        <%= form_tag(products_path, method: :get) do %>
-          <%= select_tag "category_name", options_for_select([["家具", "家具"],["文房具","文房具"]]), class: "form-control", id: "exampleFormControlSelect2" %>
-        <% end %>
+    <div class="container">
+      <div class="mx-auto row">
+        <label class="col-sm-2 col-form-label col-form-label-lg" for="exampleFormControlSelect2">商品カテゴリ</label>
+        <div class="col-sm-4">
+          <%= f.collection_select(:category_id, Category.all, :id, :category_name, {include_blank: "未選択", selected: params[:category_id]}, {class: "form-control", id: "exampleFormControlSelect2"}) %>
+        </div>
       </div>
     </div>
-  </div>
+  <% end %>
   <% if @products %>
     <div class="container">
       <p>全<%= @products.total_count %>件</p>

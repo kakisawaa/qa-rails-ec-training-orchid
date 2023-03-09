@@ -6,11 +6,10 @@ class Product < ApplicationRecord
   has_many :purchases, dependent: :destroy
   has_many :order_details, dependent: :destroy
 
-  def self.search(search)
-    if search
-      where(['product_name LIKE ?', "%#{search}%"]) 
-    else
-      all
-    end
+  def self.search(product_name, category_id)
+    products = all
+    products = where(['product_name LIKE ?', "%#{product_name}%"]) if product_name.present?
+    products = products.where(category_id: category_id) if category_id.present?
+    products
   end
 end
