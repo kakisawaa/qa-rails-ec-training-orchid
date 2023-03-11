@@ -1,5 +1,6 @@
 class User < ApplicationRecord
   belongs_to :user_classification
+  has_many :orders, dependent: :destroy
   has_many :products, dependent: :destroy
   has_secure_password
   VALID_PASSWORD_REGEX = /\A(?=.*?[a-z])(?=.*?\d)[a-z\d]+\z/i
