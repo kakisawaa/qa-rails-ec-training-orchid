@@ -6,8 +6,25 @@ class UsersController < ApplicationController
     @user = User.find_by(id: params[:id])
   end
 
+  def new
+    @user = User.new
+  end
+
   def edit
     @user = User.find_by(id: params[:id])
+  end
+
+  def create
+    @user = User.new(user_params)
+    @user.user_classification_id = 2
+    if @user.save
+      # TODO: 日本語化のタスクの時に以下の日本語をconfig/localsに定義する
+      flash[:success] = "ユーザーを登録しました。こちらからログインしてください。" # rubocop:disable Rails/I18nLocaleTexts
+      redirect_to login_path
+    else
+      flash.now[:danger] = @user.errors.full_messages
+      render "new"
+    end
   end
 
   def update
